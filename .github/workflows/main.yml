@@ -26,7 +26,6 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: sudo apt-get install -y -qq libtinfo5 ccache
 
-
       - name: Disable compression in ccache and set ccache path
         run: ccache -o compression=false -o cache_dir=$HOME/.ccache
 
@@ -57,6 +56,7 @@ jobs:
                        model=${{ matrix.model }} \
                        name="Cruel-N975F-Wifi"   \
                        toolchain=$TOOLCHAIN      \
+                       -magisk                   \
                        +nohardening              \
                        +ttl                      \
                        +wireguard                \
